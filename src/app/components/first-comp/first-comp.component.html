@@ -1,0 +1,14 @@
+<p>first-comp works!</p>
+
+{{name}}
+<input type="text" [value]='name'>
+
+<button (click)='onclick()'>click</button>
+
+<input type="text" [ngModel]="name">
+
+<button (mouseenter)='onEnter()'> BUTTON </button>
+
+<button (click)='on2ndclick()'> BUTTON 2</button>
+
+<app-second-comp [sendMessage]='message' [sendAge]='age' [anime]='anime'></app-second-comp>

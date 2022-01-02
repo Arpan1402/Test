@@ -1,0 +1,55 @@
+<button (click)="toggle()">Toggle</button>
+
+<div *ngIf="cond">
+    <ul>
+        <li>{{arr[0]}}</li>
+        <li>{{arr[1]}}</li>
+        <li>{{arr[2]}}</li>
+    </ul>
+
+    <ul>
+        <li *ngFor="let item of arr; let i=index" >
+            <div *ngIf="i%2==0">{{item}}</div>
+        </li>
+    </ul>
+
+    
+</div>
+
+<div>
+    <div [class.red]="cond" >This is a test div</div>
+    <div [ngClass]="{blue: cond, font:!cond}">This is a second div</div>
+    <div [ngStyle]="{color: 'green'}">This is 3rd div</div>
+    <div [style.color]='"yellow"'>This is 4th div</div>
+</div>
+
+<div>
+    <div [ngClass]="cond?'red':'blue'">Change the color</div>
+</div>
+
+<div>
+    <div *ngIf="cond; else abc">IF ELSE</div>
+    <ng-template #abc>ELSE part</ng-template>
+</div>
+
+<div>
+    <ul>
+        <ng-container  *ngIf="cond">
+            <li *ngFor="let item of obj; let i=index" >
+                <div [ngClass]="item.isActive?'red':'blue'">{{item.name}}</div>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+
+<div [ngClass]="getcolor()">
+    This is div
+</div>
+
+<div>
+    <div [ngSwitch]="str">
+        <div *ngSwitchCase="'en'">English</div>
+        <div *ngSwitchCase="'fr'">French</div>
+    </div>
+
+</div>
